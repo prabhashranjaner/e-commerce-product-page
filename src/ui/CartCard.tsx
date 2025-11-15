@@ -20,6 +20,10 @@ const StyledCartCard = styled.div`
     right: 20px;
     display: block;
   }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 450px;
+  }
 `;
 
 const CartItemList = styled.ul``;

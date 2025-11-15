@@ -1,26 +1,28 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Modal from "./Modal";
 
 const StyledLightBox = styled.div`
   @media screen and (min-width: 1024px) {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
   }
 `;
 
 const ImageWrapper = styled.div<imageNoType>`
   position: relative;
-  height: 35vh;
+  height: 250px;
   background-image: ${(props) =>
     `url(/images/image-product-${props.$number}.jpg)`};
   background-size: cover;
   background-position: center top;
+  pointer-events: none;
 
   @media screen and (min-width: 1024px) {
-    /* height: auto; */
+    height: 500px;
     border-radius: 16px;
+    pointer-events: all;
   }
 `;
 
@@ -40,6 +42,13 @@ const Button = styled.button`
   img {
     width: 10px;
     object-fit: cover;
+  }
+
+  z-index: 50;
+
+  @media screen and (min-width: 1024px) {
+    width: 50px;
+    height: 50px;
   }
 `;
 
@@ -80,11 +89,8 @@ const Thumbnail = styled.img`
 `;
 
 // !component
-const LightBox = () => {
+const LightBox = ({ openModal }: { openModal?: () => void }) => {
   const [imageNo, setImageNo] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
-  const closeModal = () => setIsModalOpen(false);
 
   const handleNextClick = () => {
     if (imageNo === 4) setImageNo(1);
@@ -98,7 +104,7 @@ const LightBox = () => {
 
   return (
     <StyledLightBox>
-      <ImageWrapper $number={imageNo}>
+      <ImageWrapper $number={imageNo} onClick={openModal}>
         <PrevButton onClick={handlePrevClick}>
           <img alt="prev" src="/images/icon-previous.svg" />
         </PrevButton>
@@ -133,7 +139,6 @@ const LightBox = () => {
           className={`${imageNo === 4 ? "active" : ""}`}
         />
       </ThumbnailWrapper>
-      {isModalOpen && <Modal closeModal={closeModal} />}
     </StyledLightBox>
   );
 };

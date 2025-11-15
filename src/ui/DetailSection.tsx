@@ -15,6 +15,7 @@ const StyledSection = styled.section`
   @media screen and (min-width: 1024px) {
     width: 50%;
     gap: 1rem;
+    padding-top: 2rem;
   }
 `;
 
@@ -38,6 +39,10 @@ const StyledCounter = styled.div`
   justify-content: space-between;
   font-weight: 700;
   margin-top: 1rem;
+  @media screen and (min-width: 1024px) {
+    width: 300px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 const CounterBtn = styled.button`
@@ -69,7 +74,7 @@ const DetailSection = () => {
 
   const handleAddToCart = () => {
     if (counterValue === 0) return;
-
+    setCounterValue(0);
     const index = state.findIndex((item) => item.id === "1");
 
     if (index === -1) {

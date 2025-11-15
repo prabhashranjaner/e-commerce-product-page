@@ -6,10 +6,10 @@ const StyledImageSection = styled.div`
     width: 40%;
   }
 `;
-const ImageSection = () => {
+const ImageSection = ({ openModal }: { openModal: () => void }) => {
   return (
     <StyledImageSection>
-      <LightBox />
+      <LightBox openModal={openModal} />
     </StyledImageSection>
   );
 };

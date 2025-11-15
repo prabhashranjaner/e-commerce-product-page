@@ -14,6 +14,10 @@ const Image = styled.img`
   width: 40px;
   object-fit: cover;
   border-radius: 3px;
+
+  @media screen and (min-width: 1024px) {
+    width: 60px;
+  }
 `;
 
 const Detail = styled.div`
@@ -21,6 +25,9 @@ const Detail = styled.div`
   font-size: 15px;
   flex-grow: 1;
   color: var(--col-gray-3);
+  @media screen and (min-width: 1024px) {
+    font-size: 18px;
+  }
 
   p {
     margin-bottom: 5px;
@@ -33,7 +40,17 @@ const Detail = styled.div`
   }
 `;
 
-const DeleteImage = styled.img``;
+const DeleteImage = styled.img`
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 20px;
+  }
+`;
 const CartItem = ({ item }: PropsType) => {
   const { dispatch } = useCart();
   return (

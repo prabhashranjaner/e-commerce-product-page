@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledBtton = styled.button`
   background-color: var(--col-orange);
   font-weight: 700;
-  padding: 1rem;
+  padding: 1.3rem;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -12,6 +12,10 @@ const StyledBtton = styled.button`
   box-shadow: 0px 5px 20px var(--col-gray-2);
   gap: 16px;
   width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 18px;
+  }
 
   &:hover {
     filter: brightness(130%);
