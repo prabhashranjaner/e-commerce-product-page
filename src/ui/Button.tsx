@@ -12,9 +12,11 @@ const StyledBtton = styled.button`
   box-shadow: 0px 5px 20px var(--col-gray-2);
   gap: 16px;
   width: 100%;
+  font-size: 16px;
 
   @media screen and (min-width: 1024px) {
     font-size: 18px;
+    color: var(--col-gray-4);
   }
 
   &:hover {
